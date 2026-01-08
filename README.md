@@ -22,20 +22,14 @@ git clone <URL_DU_REPO_BACKEND>
 cd Backend_Restaurant_Asiatique
 ```
 
-### 2. Lancer la base de données (Docker)
-Le projet utilise MySQL. Vous pouvez lancer la base de données via Docker :
-```bash
-docker-compose up -d mysqldb
-```
-*Note : Le script d'initialisation se trouve dans `src/main/resources/init.sql`.*
+### 2. Lancer l'application (Backend + Base de données)
+Pour partir sur une base propre et lancer l'ensemble de la stack (Base de données + API) :
 
-### 3. Compiler et lancer le serveur
-Utilisez Maven pour démarrer l'API :
 ```bash
-mvn clean install
-mvn exec:java -Dexec.mainClass="org.example.Main"
+docker-compose down -v
+docker-compose up --build
 ```
-Une fois lancé, le serveur sera accessible sur `http://localhost:7000`.
+*Le serveur sera accessible sur `http://localhost:7000` et la base de données sera initialisée.*
 
 ## Endpoints
 - `GET /api/categories` : Liste toutes les catégories.

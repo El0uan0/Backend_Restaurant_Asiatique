@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS product (
     image_url VARCHAR(255),
     is_spicy BOOLEAN DEFAULT FALSE,
     available BOOLEAN DEFAULT TRUE,
-    stock_quantity INT DEFAULT 50,
+    stock_quantity INT DEFAULT 15,
     FOREIGN KEY (category_id) REFERENCES category(id)
 );
 

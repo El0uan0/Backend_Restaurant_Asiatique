@@ -37,6 +37,9 @@ public class ProductDTO {
     @JsonProperty("available")
     private boolean available;         // Pour griser si non disponible
 
+    @JsonProperty("stockQuantity")
+    private int stockQuantity;         // Quantité en stock pour gestion front
+
     // ==================== CONSTRUCTEURS ====================
 
     /**
@@ -58,6 +61,7 @@ public class ProductDTO {
         this.price = product.getPrice();
         this.imageUrl = product.getImageUrl();
         this.spicy = product.isSpicy();
+        this.stockQuantity = product.getStockQuantity();
         
         // Logique interne : stock <= 0 signifie que le produit devient indisponible
         this.available = product.isAvailable() && (product.getStockQuantity() > 0);
@@ -71,6 +75,9 @@ public class ProductDTO {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public int getStockQuantity() { return stockQuantity; }
+    public void setStockQuantity(int stockQuantity) { this.stockQuantity = stockQuantity; }
 
     public String getName() {
         return name;
